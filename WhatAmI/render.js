@@ -3,6 +3,7 @@ const {
   StyleSheet,
   View,
   TouchableHighlight,
+  ScrollView,
 } = React
 import {
   Root, VBox, HBox, Text, Image, TextInput, Button,
@@ -10,7 +11,7 @@ import {
 
 
 export default function() {
-  return <Root>
+  return <ScrollView ref='scrollView' style={rootStyle}>
     <VBox>
       <Text>What am I?</Text>
 
@@ -18,6 +19,7 @@ export default function() {
 
       <HBox>
         <TextInput
+          ref='answer'
           placeholder='Enter your answer here'
           value={this.state.answer}
           enablesReturnKeyAutomatically={true}
@@ -25,7 +27,7 @@ export default function() {
           clearButtonMode='while-editing'
           onChange={this.onAnswerChanged}
           onSubmitEditing={this.onSubmitAnswer}
-          //onFocus={this.scrollComponentIntoView.bind(this, 'answer')}
+          onFocus={this.inputFocused.bind(this, 'answer')}
         />
         <Button text="Submit" onPress={this.onSubmitAnswer} />
       </HBox>
@@ -36,5 +38,7 @@ export default function() {
         <Button text="Hint 3" onPress={this.onHintPress.bind(this, 'The most expensive coffee in the world comes out of my butt')} />
       </HBox>
     </VBox>
-  </Root>
+  </ScrollView>
 }
+
+var rootStyle = {marginTop: 20, padding: 10}

@@ -2,17 +2,6 @@ import React from 'react-native'
 const cloneWithProps = React.addons.cloneWithProps
 
 
-class Root extends React.ScrollView {
-  render() {
-    let style = {marginTop: 20, padding: 10};
-    return <React.ScrollView
-      {...this.props}
-      style={[this.props.style, style]}>
-      {this.props.children}
-    </React.ScrollView>
-  }
-}
-
 class VBox extends React.View {
   render() {
     return renderBox(false, this.props)
@@ -112,4 +101,4 @@ var styles = React.StyleSheet.create({
 })
 
 
-export { Root, VBox, HBox, Text, Image, TextInput, Button }
+export { VBox, HBox, Text, Image, TextInput, Button }

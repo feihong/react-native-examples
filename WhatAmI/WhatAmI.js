@@ -16,6 +16,17 @@ export default class WhatAmI extends React.Component {
     this.onSubmitAnswer = this.onSubmitAnswer.bind(this)
   }
 
+  inputFocused(refName) {
+    setTimeout(() => {
+      let scrollResponder = this.refs.scrollView.getScrollResponder();
+      scrollResponder.scrollResponderScrollNativeHandleToKeyboard(
+        React.findNodeHandle(this.refs[refName]),
+        50, //additionalOffset
+        true
+      );
+    }, 50);
+  }
+
   onAnswerChanged(event) {
     this.setState({answer: event.nativeEvent.text});
   }
