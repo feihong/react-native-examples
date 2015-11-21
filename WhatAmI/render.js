@@ -8,10 +8,11 @@ const {
 import {
   Root, VBox, HBox, Text, Image, TextInput, Button,
 }  from './Custom'
+import KeyboardHandler from './KeyboardHandler'
 
 
 export default function() {
-  return <ScrollView ref='scrollView' style={rootStyle}>
+  return <KeyboardHandler ref='kh' style={rootStyle}>
     <VBox>
       <Text>What am I?</Text>
 
@@ -27,7 +28,7 @@ export default function() {
           clearButtonMode='while-editing'
           onChange={this.onAnswerChanged}
           onSubmitEditing={this.onSubmitAnswer}
-          onFocus={this.inputFocused.bind(this, 'answer')}
+          onFocus={() => this.refs.kh.inputFocused(this, 'answer')}
         />
         <Button text="Submit" onPress={this.onSubmitAnswer} />
       </HBox>
@@ -38,7 +39,7 @@ export default function() {
         <Button text="Hint 3" onPress={this.onHintPress.bind(this, 'The most expensive coffee in the world comes out of my butt')} />
       </HBox>
     </VBox>
-  </ScrollView>
+  </KeyboardHandler>
 }
 
 var rootStyle = {marginTop: 20, padding: 10}
