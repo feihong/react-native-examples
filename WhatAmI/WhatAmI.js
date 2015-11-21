@@ -16,6 +16,10 @@ export default class WhatAmI extends React.Component {
     this.onSubmitAnswer = this.onSubmitAnswer.bind(this)
   }
 
+  inputFocused(refName) {
+    this.refs.kh.inputFocused(this, refName)
+  }
+
   onAnswerChanged(event) {
     this.setState({answer: event.nativeEvent.text});
   }

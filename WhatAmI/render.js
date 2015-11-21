@@ -28,7 +28,7 @@ export default function() {
           clearButtonMode='while-editing'
           onChange={this.onAnswerChanged}
           onSubmitEditing={this.onSubmitAnswer}
-          onFocus={() => this.refs.kh.inputFocused(this, 'answer')}
+          onFocus={this.inputFocused.bind(this, 'answer')}
         />
         <Button text="Submit" onPress={this.onSubmitAnswer} />
       </HBox>
