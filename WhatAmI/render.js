@@ -1,15 +1,15 @@
-import React from 'react-native';
+import React from 'react-native'
 const {
   StyleSheet,
   View,
   TouchableHighlight,
-} = React;
+} = React
 import {
   Root, VBox, HBox, Text, Image, TextInput, Button,
-}  from './Custom';
+}  from './Custom'
 
 
-module.exports = function() {
+export default function() {
   return <Root>
     <VBox>
       <Text>What am I?</Text>
@@ -36,5 +36,5 @@ module.exports = function() {
         <Button text="Hint 3" onPress={this.onHintPress.bind(this, 'The most expensive coffee in the world comes out of my butt')} />
       </HBox>
     </VBox>
-  </Root>;
-};
+  </Root>
+}

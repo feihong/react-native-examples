@@ -1,10 +1,9 @@
-// import React from 'react-native';
-const React = require('react-native');
-const { AlertIOS } = React;
-import render from './render';
+import React from 'react-native';
+const { AlertIOS } = React
+import render from './render'
 
 
-class WhatAmI extends React.Component {
+export default class WhatAmI extends React.Component {
   constructor(props) {
     super(props)
     this.state = {answer: ''}
@@ -48,18 +47,8 @@ class WhatAmI extends React.Component {
   onHintPress(hint) {
     _alert('Hint', hint)
   }
-
-  onHint1Press() {
-    _alert('Hint', 'You can use Google to look me up');
-  }
-
-  onHint2Press() {
-    _alert('Hint', 'I can be used to make coffee');
-  }
 }
 
 function _alert(title, message) {
-  AlertIOS.alert(title, message);
+  AlertIOS.alert(title, message)
 }
-
-module.exports = WhatAmI;

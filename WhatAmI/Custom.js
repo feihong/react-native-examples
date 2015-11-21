@@ -1,5 +1,5 @@
-import React from 'react-native';
-const cloneWithProps = React.addons.cloneWithProps;
+import React from 'react-native'
+const cloneWithProps = React.addons.cloneWithProps
 
 
 class Root extends React.ScrollView {
@@ -9,25 +9,25 @@ class Root extends React.ScrollView {
       {...this.props}
       style={[this.props.style, style]}>
       {this.props.children}
-    </React.ScrollView>;
+    </React.ScrollView>
   }
 }
 
 class VBox extends React.View {
   render() {
-    return renderBox(false, this.props);
+    return renderBox(false, this.props)
   }
 }
 
 class HBox extends React.View {
   render() {
-    return renderBox(true, this.props);
+    return renderBox(true, this.props)
   }
 }
 
 function renderChildren(isHorizontal, children) {
-  let result = [];
-  let count = React.Children.count(children);
+  let result = []
+  let count = React.Children.count(children)
   React.Children.forEach(children, (child, index) => {
     if (index < count - 1) {
       let marginStyle = isHorizontal ? {marginRight: 10} : {marginBottom: 10};
@@ -36,15 +36,15 @@ function renderChildren(isHorizontal, children) {
     } else {
       result.push(child);
     }
-  });
-  return result;
+  })
+  return result
 }
 
 function renderBox(isHorizontal, props) {
-  let style = {flexDirection: isHorizontal ? 'row' : 'column'};
+  let style = {flexDirection: isHorizontal ? 'row' : 'column'}
   return <React.View {...props} style={[props.style, style]}>
     {renderChildren(isHorizontal, props.children)}
-  </React.View>;
+  </React.View>
 }
 
 
@@ -52,13 +52,13 @@ class Text extends React.Text {
   render() {
     return <React.Text {...this.props} style={[{fontSize: 20}, this.props.style]}>
       {this.props.children}
-    </React.Text>;
+    </React.Text>
   }
 }
 
 class Image extends React.Image {
   render() {
-    return <React.Image {...this.props} style={[styles.image, this.props.style]} />;
+    return <React.Image {...this.props} style={[styles.image, this.props.style]} />
   }
 }
 
@@ -67,7 +67,7 @@ class TextInput extends React.TextInput {
   render() {
     return <React.TextInput
       {...this.props}
-      style={[styles.textinput, this.props.style]} />;
+      style={[styles.textinput, this.props.style]} />
   }
 }
 
@@ -75,12 +75,12 @@ class Button extends React.Component {
   render() {
       return <React.TouchableHighlight {...this.props} style={[styles.button, this.props.style]}>
         <Text style={styles.buttonText}>{this.props.text}</Text>
-      </React.TouchableHighlight>;
+      </React.TouchableHighlight>
   }
 }
 Button.propTypes = {
   text: React.PropTypes.string.isRequired,
-};
+}
 
 var styles = React.StyleSheet.create({
   image: {
@@ -109,15 +109,7 @@ var styles = React.StyleSheet.create({
     fontSize: 18,
     color: 'linen',
   }
-});
+})
 
-module.exports = {
-  Root: Root,
-  VBox: VBox,
-  HBox: HBox,
-  Text: Text,
-  Image: Image,
-  TextInput: TextInput,
-  Button: Button,
-  // scrollComponentIntoView: scrollComponentIntoView,
-};
+
+export { Root, VBox, HBox, Text, Image, TextInput, Button }
