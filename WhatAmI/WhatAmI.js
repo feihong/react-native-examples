@@ -48,10 +48,16 @@ export default class WhatAmI extends React.Component {
     }
   }
 
-  onHintPress(hint) {
-    _alert('Hint', hint)
+  onHintPress(hintIndex) {
+    _alert('Hint', hints[hintIndex])
   }
 }
+
+var hints = [
+  'I love coffee',
+  'I can be used to make coffee',
+  'The most expensive coffee in the world comes out of my butt',
+]
 
 function _alert(title, message) {
   AlertIOS.alert(title, message)

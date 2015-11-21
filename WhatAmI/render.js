@@ -34,9 +34,9 @@ export default function() {
       </HBox>
 
       <HBox>
-        <Button text="Hint 1" onPress={this.onHintPress.bind(this, 'I love coffee')} />
-        <Button text="Hint 2" onPress={this.onHintPress.bind(this, 'I can be used to make coffee')} />
-        <Button text="Hint 3" onPress={this.onHintPress.bind(this, 'The most expensive coffee in the world comes out of my butt')} />
+        <Button text="Hint 1" onPress={() => this.onHintPress(0)} />
+        <Button text="Hint 2" onPress={() => this.onHintPress(1)} />
+        <Button text="Hint 3" onPress={() => this.onHintPress(2)} />
       </HBox>
     </VBox>
   </KeyboardHandler>
